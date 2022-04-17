@@ -1,6 +1,6 @@
 import { MongoMemoryServer } from 'mongodb-memory-server'
 
-export default function start(mongoose) {
+export default function start (mongoose) {
   let mongod
 
   async function start () {
@@ -10,7 +10,7 @@ export default function start(mongoose) {
       console.error('MongoDB Memory Server Error - start', e)
     }
   }
-  
+
   async function connect (dbName) {
     try {
       const mongoUri = await mongod.getUri()
@@ -20,18 +20,18 @@ export default function start(mongoose) {
       console.log('MongoDB Memory Server Error - connect', e)
     }
   }
-  
+
   async function purge () {
     try {
       const collections = await mongoose.connection.db.listCollections()
       const collectionsArray = await collections.toArray()
-  
+
       await Promise.all(collectionsArray.map(collection => mongoose.connection.dropCollection(collection.name)))
     } catch (e) {
       console.log('MongoDB Memory Server Error - purge', e)
     }
   }
-  
+
   async function disconnect () {
     try {
       await mongoose.connection.dropDatabase()
@@ -40,7 +40,7 @@ export default function start(mongoose) {
       console.log('MongoDB Memory Server Error - disconnect', e)
     }
   }
-  
+
   async function stop () {
     try {
       await mongod.stop()
@@ -48,7 +48,7 @@ export default function start(mongoose) {
       console.log('MongoDB Memory Server Error - stop', e)
     }
   }
-  
+
   return {
     start,
     connect,
@@ -57,8 +57,3 @@ export default function start(mongoose) {
     stop
   }
 }
-
-
-
-
-
