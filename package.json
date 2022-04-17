@@ -1,0 +1,33 @@
+{
+  "name": "mongoose-memory",
+  "version": "1.0.0",
+  "description": "A simple mongodb-memory-server wrapper for mongoose to make your tests 10x faster.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npx standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyulanemeth/mongoose-memory.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "memory"
+  ],
+  "author": "GYN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gyulanemeth/mongoose-memory/issues"
+  },
+  "homepage": "https://github.com/gyulanemeth/mongoose-memory#readme",
+  "dependencies": {
+    "mongodb-memory-server": "^8.5.0"
+  },
+  "peerDependencies": {
+    "mongoose": "6.x"
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
+  }
+}
