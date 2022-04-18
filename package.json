@@ -1,6 +1,6 @@
 {
   "name": "mongoose-memory",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A simple mongodb-memory-server wrapper for mongoose to make your tests 10x faster.",
   "main": "src/index.js",
   "type": "module",
