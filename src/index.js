@@ -3,9 +3,9 @@ import { MongoMemoryServer } from 'mongodb-memory-server'
 export default function start (mongoose) {
   let mongod
 
-  async function start () {
+  async function start ({ storageEngine = 'ephemeralForTest' } = {}) {
     try {
-      mongod = await MongoMemoryServer.create()
+      mongod = await MongoMemoryServer.create({ instance: { storageEngine } })
     } catch (e) {
       console.error('MongoDB Memory Server Error - start', e)
     }

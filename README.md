@@ -48,6 +48,12 @@ await mongooseMemoryServer.start()
 
 You can start multiple instances at the same time. (They will start separate mongodb-memory-server instances bound to different ports.)
 
+The default storage engine is 'ephemeralForTest' which does not provide indices. If your tests rely on indices (for example, your API should return an error in a duplicate key) you will need to use the 'wiredTiger' storage engine.
+
+```javascript
+await mongooseMemoryServer.start({ storageEngine: 'wiredTiger' })
+```
+
 **async connect(dbName)**
 
 Connects to your test database (dbName - string).
