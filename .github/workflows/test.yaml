@@ -5,12 +5,14 @@ name: Test
 
 on:
   push:
-    branches-ignore:
+    branches: 
       - master
+      - '**'
   pull_request:
-    branches-ignore: 
+    branches: 
       - master
-
+      - '**'
+      
 jobs:
   build:
 
